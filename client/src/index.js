@@ -4,13 +4,14 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
+import {createStore,applyMiddleware} from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
 // we import provider to connect store to our app
 // will wrap the App component.
 import {Provider} from 'react-redux';
-import rootReducer from './reducers/rootReducer'
+import rootReducer from './store/reducers/rootReducer'
 
 
 // we kick-start the app and render to dom, so we create store here.
