@@ -10,27 +10,25 @@ const initState = {
 const rootReducer = (state = initState,action) => {
     const newState = {...state};
     if ( action.type === 'ITEMS_HAS_ERRORED') {
-        return {
-            ...state,
-            hasErrored : [...state.hasErrored,...action.hasErrored]
-        } 
+         
+            newState.hasErrored = action.hasErrored
+        
     
     }
     if ( action.type === 'ITEMS_IS_LOADING') {
-        return {
-            ...state,
-            isLoading : [...state.isLoading,...action.isLoading]
-        } 
+     
+            newState.isLoading = action.isLoading
+    
     
     }
     if ( action.type === 'ITEMS_FETCH_DATA_SUCCESS'){
-         {
+
             newState.cities = action.cities
         } 
         return newState; 
     }
    
-}
+
 
  
 

@@ -17,8 +17,8 @@ class Cities extends React.Component{
         return (
             <ul>
                 {this.props.cities.map((item) => (
-                    <li key={item.id}>
-                        {item.label}
+                    <li key={item._id}>
+                        {item.name}
                     </li>
                 ))}
             </ul>
