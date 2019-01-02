@@ -7,7 +7,6 @@ import * as serviceWorker from './serviceWorker';
 import {createStore,applyMiddleware} from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-
 // we import provider to connect store to our app
 // will wrap the App component.
 import {Provider} from 'react-redux';
@@ -19,9 +18,9 @@ import rootReducer from './store/reducers/rootReducer'
 // we pass our store in the provider and wrap our app inside the provider component.
 
 const store = createStore(rootReducer, composeWithDevTools(
-  applyMiddleware(thunk)
-  // other store enhancers if any
+applyMiddleware(thunk)
 ));
+
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 
