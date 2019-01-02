@@ -1,0 +1,133 @@
+
+.container{
+  display: flex;
+  padding: 6% 2% 0% 2%;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+}
+.container img{
+    width: 100%;
+}
+.content{
+  height: 66%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.startBrowsing{
+    text-align: center;
+}
+.browserArrow img{
+    width: 30%;
+}
+
+.browserArrow{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30%;
+}
+
+.NavBar{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.logButton{
+    width: 12%;
+}
+
+.bm-burger-button {
+    position: fixed;
+    width: 36px;
+    height: 30px;
+    right: 36px;
+  }
+  
+  /* Color/shape of burger icon bars */
+  .bm-burger-bars {
+    background: #373a47;
+  }
+  
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+  
+  /* Color/shape of close button cross */
+  .bm-cross {
+    background: #bdc3c7;
+  }
+  
+  /* General sidebar styles */
+  .bm-menu {
+    background: #dc2b00;
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+    text-align: center;
+  }
+  
+  /* Morph shape necessary with bubble or elastic */
+  .bm-morph-shape {
+    fill: #373a47;
+  }
+  
+  /* Wrapper for item list */
+  .bm-item-list {
+    color: #b8b7ad;
+    padding: 0.7em;
+    margin-top: 15%;
+
+  }
+  .bm-item-list a {
+    color:white;
+    margin-bottom: 5%;
+    padding: 4px;
+    font-size: larger;
+    border-radius: 6%;
+    text-decoration: underline;
+  }
+  
+  /* Individual item */
+  .bm-item {
+    display: inline-block;
+  }
+  
+  /* Styling of overlay */
+  .bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .bm-menu-wrap{
+      top:0;
+  }
+
+  .homeIcon{
+    display: flex;
+    background-color: #3a4e56;
+    padding: 2%;
+    border-radius: 4%;
+    justify-content: center;
+  }
+
+  .homeIcon img{
+    width: 12%;
+    height:12%;
+  }
+
+  .citiesList p {
+    border: 1px solid black;
+    padding: 1%;
+    text-align: center;
+}
+
+.cityList{
+  height: 60%;
+  padding: 2% 0;
+  overflow: scroll;
+}

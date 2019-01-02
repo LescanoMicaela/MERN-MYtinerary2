@@ -1,0 +1,27 @@
+{
+  "name": "example-create-react-app-express",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "client": "cd ../client && npm start",
+    "main": "server.js",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "start": "node server.js",
+    "heroku-postbuild": "cd ../client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.4.1",
+    "react-redux": "^6.0.0",
+    "react-scripts": "^2.1.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.1",
+    "nodemon": "^1.18.9"
+  }
+}
