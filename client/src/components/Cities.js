@@ -14,10 +14,10 @@ class Cities extends React.Component{
       }
     
       onChangeHandler(e){
-        this.setState({
-          input: e.target.value.toLowerCase(),
+            this.setState({
+            input: e.target.value.toLowerCase(),
         })
-        console.log(this.state.input)
+            console.log(this.state.input)
       }
     
     componentDidMount() {
@@ -25,30 +25,28 @@ class Cities extends React.Component{
     }
     
     render() {
+        //Destructuring props to use for conditional rendering
+        const{hasErrored,isLoading} = this.props;
 
-        //I filter cities by input here
+        //Filter cities by input here
         let filteredCityList = this.props.cities
             .filter(city => this.state.input === '' || city['name'].toLowerCase().includes(this.state.input))
             .map((city) => <Citydiv key={city._id}name={city.name} image={city.image} />);
-
-        if (this.props.hasErrored) {
-            return <p>Sorry! There was an error loading the items</p>;
-        }
-        if (this.props.isLoading) {
-            return <Loader />;
-        }
-        return (
-            <div className='contentCities'>
-                <Filter classStyle='filterDiv' onChangeHandler={this.onChangeHandler.bind(this)}/>
-                 <div className='citiesList'>
-                     {filteredCityList}
-                 </div>
-            </div>
-           
-        );
-    }
-
-  
+            
+            return(
+                <div className='contentCities'>
+                     {hasErrored && <p>Sorry! There was an error loading the items</p>}
+                    { isLoading &&  <Loader />}
+                    {!hasErrored && !isLoading &&
+                    <React.Fragment>
+                        <Filter classStyle='filterDiv' onChangeHandler={this.onChangeHandler.bind(this)}/>
+                        <div className='citiesList'>
+                            {filteredCityList}
+                        </div>
+                    </React.Fragment> }
+                </div>
+            )
+    }           
 }
 
 const Citydiv = (props) => {
@@ -80,8 +78,9 @@ const Filter = (props) => {
     return (
         <div className={props.classStyle}>
              <DebounceInput
-            minLength={2}
-            debounceTimeout={300}  onChange={props.onChangeHandler} type='text' placeholder='  Filter by city...' />
+                minLength={1}
+                debounceTimeout={300}  
+                onChange={props.onChangeHandler} type='text' placeholder='  Filter by city...' />
         </div>
     )
 }
