@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as  actionCreator  from '../store/actions/actions';
 import Loader from './Loader';
-import './cities.css'
+import './cities.css';
+import {DebounceInput} from 'react-debounce-input';
 
 class Cities extends React.Component{
     constructor(){
@@ -78,7 +79,9 @@ const mapDispatchToProps = (dispatch) => {
 const Filter = (props) => {
     return (
         <div className={props.classStyle}>
-            <input  onChange={props.onChangeHandler} type='text' placeholder='  Filter by city...'></input>
+             <DebounceInput
+            minLength={2}
+            debounceTimeout={300}  onChange={props.onChangeHandler} type='text' placeholder='  Filter by city...' />
         </div>
     )
 }
