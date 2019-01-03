@@ -5,11 +5,31 @@ import Loader from './Loader';
 import './cities.css'
 
 class Cities extends React.Component{
+    constructor(){
+        super();
+        this.state ={
+          input: '',
+        }
+      }
+    
+      onChangeHandler(e){
+        this.setState({
+          input: e.target.value.toLowerCase(),
+        })
+        console.log(this.state.input)
+      }
+    
     componentDidMount() {
         this.props.fetchData('/api/cities');
     }
+    
     render() {
-        
+
+        //I filter cities by input here
+        let filteredCityList = this.props.cities
+            .filter(city => this.state.input === '' || city['name'].toLowerCase().includes(this.state.input))
+            .map((city) => <Citydiv key={city._id}name={city.name} image={city.image} />);
+
         if (this.props.hasErrored) {
             return <p>Sorry! There was an error loading the items</p>;
         }
@@ -18,12 +38,10 @@ class Cities extends React.Component{
         }
         return (
             <div className='contentCities'>
-                <Filter classStyle='filterDiv' />
+                <Filter classStyle='filterDiv' onChangeHandler={this.onChangeHandler.bind(this)}/>
                  <div className='citiesList'>
-                {this.props.cities.map((item) => (
-                    <Citydiv key={item._id}name={item.name} image={item.image} />
-                ))}
-            </div>
+                     {filteredCityList}
+                 </div>
             </div>
            
         );
@@ -60,7 +78,7 @@ const mapDispatchToProps = (dispatch) => {
 const Filter = (props) => {
     return (
         <div className={props.classStyle}>
-            <input type='text' placeholder='Filter by city..'></input>
+            <input  onChange={props.onChangeHandler} type='text' placeholder='  Filter by city...'></input>
         </div>
     )
 }
