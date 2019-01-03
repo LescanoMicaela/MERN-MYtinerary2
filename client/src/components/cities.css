@@ -1,0 +1,28 @@
+.contentCities{
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: column;
+    height: 75%;
+}
+.citiesList{
+    max-height: 80%;
+    overflow-y: scroll;
+}
+.citiesList div{
+    background-size: cover;
+    height: 6em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f8f9fa;
+    text-shadow: 3px 1px black;
+}
+.filterDiv{
+    display:flex;
+    justify-content: center;
+}
+.filterDiv input{
+    border: 2px solid black;
+    width: 88%;
+    font-size: 1.5em;
+}

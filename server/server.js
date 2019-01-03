@@ -3,6 +3,7 @@ const app = express();
 const MongoClient = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID; 
 const bodyParser= require('body-parser');
+//this is the port where our server will work on
 const port =  8080;
 
 

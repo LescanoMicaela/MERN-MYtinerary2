@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './Home.css';
 import Logo from '../assets/images/MYtineraryLogo.png';
 import BrowserArrow from '../assets/images/circled-right-2.png';

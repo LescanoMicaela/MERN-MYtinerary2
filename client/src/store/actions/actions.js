@@ -61,7 +61,7 @@ export function fetchCities(url) {
           })
           .then((response) => response.json())
           .then((cities) => {
-            console.log(cities)
+            console.log(' this is the data im fetching',cities)
             dispatch(itemsFetchDataSuccess(cities))})
           .catch(() => dispatch(itemsHasErrored(true)));
   };
