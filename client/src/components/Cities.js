@@ -40,10 +40,15 @@ class Cities extends React.Component{
                     {!hasErrored && !isLoading &&
                     <React.Fragment>
                         <Filter classStyle='filterDiv' onChangeHandler={this.onChangeHandler.bind(this)}/>
+                         { filteredCityList.length > 0 &&
                         <div className='citiesList'>
                             {filteredCityList}
-                        </div>
-                    </React.Fragment> }
+                        </div> }
+                        { filteredCityList.length == 0 &&
+                        <h2>No results found</h2>
+                        }
+                    </React.Fragment>
+                    }
                 </div>
             )
     }           
