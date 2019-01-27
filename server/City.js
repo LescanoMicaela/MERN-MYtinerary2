@@ -16,10 +16,12 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 //Define a schema
 const Schema = mongoose.Schema;
-
+//A schema defines document properties through an object where 
+//the key name corresponds to the property name in the collection.
+//property called name,country with a schema type String
 let citySchema = new Schema({
-    name: name,
-    country: country
+    name: String,
+    country: String
 });
 
-module.exports = citySchema;
+module.exports = mongoose.model('City',citySchema);
