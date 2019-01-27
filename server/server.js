@@ -53,7 +53,11 @@ var dbase = db.db("mytinerary");
       console.log('The city: ' + city);
       dbase.collection('cities').find().toArray( (err, results) => {
         let result = results.filter(el => el.name.toLowerCase() == city.toLowerCase())
-        res.send(result)
+        if (result.length === 0){
+          res.send({"error":"Not city found"});
+        }else{
+          res.send(result)
+        }
         });
     });
     
@@ -68,7 +72,11 @@ var dbase = db.db("mytinerary");
       console.log('The city: ' + city);
       dbase.collection('itineraries').find().toArray( (err, results) => {
         let result = results.filter(el => el.ref.includes(city.toLowerCase()))
-        res.send(result)
+        if (result.length === 0){
+          res.send({"error":"Not city found"});
+        }else {
+          res.send(result)
+        }
         });
     });
     

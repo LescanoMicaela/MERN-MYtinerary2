@@ -4,6 +4,7 @@ import * as  actionCreator  from '../store/actions/actions';
 import Loader from './Loader';
 import './cities.css';
 import {DebounceInput} from 'react-debounce-input';
+import CityButton from './CityButton';
 
 class Cities extends React.Component{
     constructor(){
@@ -31,7 +32,7 @@ class Cities extends React.Component{
         //Filter cities by input here
         let filteredCityList = this.props.cities
             .filter(city => this.state.input === '' || city['name'].toLowerCase().includes(this.state.input))
-            .map((city) => <Citydiv key={city._id}name={city.name} image={city.image} />);
+            .map((city) => <CityButton key={city._id}name={city.name} image={city.image} />);
             
             return(
                 <div className='contentCities'>
@@ -54,13 +55,7 @@ class Cities extends React.Component{
     }           
 }
 
-const Citydiv = (props) => {
-    return (
-        <div style={{backgroundImage: `url(${props.image})`}}>
-            <h2>{props.name}</h2>
-        </div>
-    )
-}
+
 
 // we take the state and map it to the props of this component
 //with state we get acces to the state of the store

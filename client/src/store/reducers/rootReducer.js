@@ -1,7 +1,10 @@
 const initState = {
     cities: [],
     hasErrored: false,
-    isLoading : false
+    isLoading : false,
+    itinerary:[],
+    itineraryIsLoading: true,
+    itineraryHasErrored: false,
 }
 
 //we create a root reducer, in a big application we would have more than one reduce
@@ -20,8 +23,23 @@ const rootReducer = (state = initState,action) => {
     if ( action.type === 'ITEMS_FETCH_DATA_SUCCESS'){
             newState.cities = action.cities
         } 
-        return newState; 
+       
+    if ( action.type === 'ITINERARY_IS_LOADING') { 
+        newState.itineraryIsLoading = action.itineraryIsLoading
+
     }
+    if ( action.type === 'ITINERARY_FETCH_DATA_SUCCESS'){
+        newState.itinerary = action.itinerary
+    } 
+ 
+   
+    if ( action.type === 'ITINERARY_HAS_ERRORED') {      
+        newState.itineraryHasErrored = action.itineraryHasErrored 
+    
+    }
+    return newState; 
+}
+
    
 
 

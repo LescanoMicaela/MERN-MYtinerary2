@@ -1,5 +1,6 @@
 import React from 'react';
 import Cities from './Cities';
+import Itinerary from './Itinerary';
 import Login from './LogIn';
 import SignUp from './SignUp';
 import Notfound from './NotFound';
@@ -25,6 +26,7 @@ export default class PageRouter extends React.Component{
            <Switch>
              <Route exact path="/" component={HomePage} />
              <Route path="/cities" component={Cities} />
+             <Route path="/itinerary/:city" component={Itinerary} />
              <Route path="/login" component={Login} />
              <Route path="/signup" component={SignUp} />
   {/* render if the URL matches no location */}
