@@ -48,6 +48,31 @@ var dbase = db.db("mytinerary");
         });
     });
 
+    app.get('/api/cities/:city',(req,res) => {
+      let city = req.params.city;
+      console.log('The city: ' + city);
+      dbase.collection('cities').find().toArray( (err, results) => {
+        let result = results.filter(el => el.name.toLowerCase() == city.toLowerCase())
+        res.send(result)
+        });
+    });
+    
+    app.get('/api/itineraries/',(req,res) => {
+      dbase.collection('itineraries').find().toArray( (err, results) => {
+        res.send(results)
+        });
+    });
+
+    app.get('/api/itineraries/:city',(req,res) => {
+      let city = req.params.city;
+      console.log('The city: ' + city);
+      dbase.collection('itineraries').find().toArray( (err, results) => {
+        let result = results.filter(el => el.ref.includes(city.toLowerCase()))
+        res.send(result)
+        });
+    });
+    
+
   });
 
 

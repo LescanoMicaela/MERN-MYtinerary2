@@ -20,8 +20,17 @@ const Schema = mongoose.Schema;
 //the key name corresponds to the property name in the collection.
 //property called name,country with a schema type String
 let citySchema = new Schema({
-    name: String,
-    country: String
+    name: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    country: {
+        type: String,
+        required: true,
+        unique: true
+    }
+    
 });
 
 module.exports = mongoose.model('City',citySchema);
